@@ -28,7 +28,7 @@ function copy(){
 	then
 		if test `cat /etc/passwd | cut -d: -f1,7 | grep -c ^$USERV:.*/nologin` -eq 0
 		then
-			echo -e " \nSe va a realizar la copia del usuario $USERV"
+			echo -e " \nGoing to copy $USERV"
 			echo -e " \tCompressing: $(tree --noreport /home/$USERV | wc -l) files y directories"
 			tar --exclude=".*" -czf /tmp/$USERV"_"$(date +%Y_%m_%d).tar.gz -C /home/ $USERV 2> /dev/null #Compress /home
 			# Checks compressing errors
