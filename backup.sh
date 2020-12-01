@@ -3,7 +3,7 @@
 #
 
 #
-# Function checkMandates()
+# Function checkCommands()
 # Check all necessary commands are installed
 #
 
