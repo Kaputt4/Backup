@@ -29,7 +29,7 @@ function copy(){
 		if test `cat /etc/passwd | cut -d: -f1,7 | grep -c ^$USERV:.*/nologin` -eq 0
 		then
 			echo -e " \nGoing to copy $USERV"
-			echo -e " \tCompressing: $(tree --noreport /home/$USERV | wc -l) files y directories"
+			echo -e " \tCompressing: $(tree --noreport /home/$USERV | wc -l) files and directories"
 			tar --exclude=".*" -czf /tmp/$USERV"_"$(date +%Y_%m_%d).tar.gz -C /home/ $USERV 2> /dev/null #Compress /home
 			# Checks compressing errors
 			if test "${PIPESTATUS[0]}" -ne 2
@@ -58,8 +58,8 @@ echo "Created by Kaputt4 and Mikiped00"
 echo -e "\nUser $USER is going to do a security backup:"
 echo -e "Date: `date`." 
 echo -e "Bash version: $BASH_VERSION "
-ERROR=0 # Save error's value.
-COUNT=0 #  Count .tar.gz files generated.
+ERROR=0 # Saves error's value.
+COUNT=0 #  Counts .tar.gz files generated.
 
 # Check all necessary commands are installed
 checkCommands
